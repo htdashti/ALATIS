@@ -104,7 +104,7 @@ global Error_Msg Warning_to_user failed_methylene_check updated_mol_name Split_m
 % generating display_info for flask web display
 fout = fopen(sprintf('%s/display_info', folder_path), 'w');
 
-fprintf(fout, '>  <ALATIS_Warnings>\n');
+fprintf(fout, '> <ALATIS_Warnings>\n');
 if ~isempty(Warning_to_user) || Three_D_flag == 0 || failed_methylene_check == 1
     for i=1:length(Warning_to_user)
         fprintf(fout, '%s\n', Warning_to_user{i});
@@ -118,7 +118,7 @@ if ~isempty(Warning_to_user) || Three_D_flag == 0 || failed_methylene_check == 1
 end
 fprintf(fout, '\n');
 
-fprintf(fout, '>  <ALATIS_Errors>\n');
+fprintf(fout, '> <ALATIS_Errors>\n');
 if ~isempty(Error_Msg) % reporting errors and exiting
     for i=1:length(Error_Msg)
         fprintf(fout, '%s\n', Error_Msg{i});
@@ -127,49 +127,49 @@ if ~isempty(Error_Msg) % reporting errors and exiting
 end
 fprintf(fout, '\n');
 
-fprintf(fout, '>  <ALATIS_compact_sdf>\n');
+fprintf(fout, '> <ALATIS_compact_sdf>\n');
 if exist(sprintf('%s/%s', folder_path, compact_sdf_output_name), 'file')
     fprintf(fout, '%s\n',compact_sdf_output_name);
 end
 fprintf(fout, '\n');
 
-fprintf(fout, '>  <ALATIS_complete_inchi>\n');
+fprintf(fout, '> <ALATIS_complete_inchi>\n');
 if exist(sprintf('%s/%s', folder_path, inchi_complete_path), 'file')
     fprintf(fout, '%s\n', inchi_complete_path);
 end
 fprintf(fout, '\n');
 
-fprintf(fout, '>  <ALATIS_output_pdb>\n');
+fprintf(fout, '> <ALATIS_output_pdb>\n');
 if exist(pdb_output_name, 'file')
     fprintf(fout, '%s\n', pdb_output_name);
 end
 fprintf(fout, '\n');
 
-fprintf(fout, '>  <ALATIS_output_xyz>\n');
+fprintf(fout, '> <ALATIS_output_xyz>\n');
 if exist(xyz_output_name, 'file')
     fprintf(fout, '%s\n', xyz_output_name);
 end
 fprintf(fout, '\n');
 
-fprintf(fout, '>  <ALATIS_input>\n');
+fprintf(fout, '> <ALATIS_input>\n');
 if exist(input_name, 'file')
     fprintf(fout, '%s\n', input_name);
 end
 fprintf(fout, '\n');
 
-fprintf(fout, '>  <ALATIS_output_mol>\n');
+fprintf(fout, '> <ALATIS_output_mol>\n');
 if exist(updated_mol_name, 'file')
     fprintf(fout, '%s\n', updated_mol_name);
 end
 fprintf(fout, '\n');
 
-fprintf(fout, '>  <ALATIS_output_map>\n');
+fprintf(fout, '> <ALATIS_output_map>\n');
 if exist('map.txt', 'file')
     fprintf(fout, '%s\n', 'map.txt');
 end    
 fprintf(fout, '\n');
     
-fprintf(fout, '>  <ALATIS_output_mixture_info>\n');
+fprintf(fout, '> <ALATIS_output_mixture_info>\n');
 if ~isempty(Split_mol_names)
     for i=1:length(Split_mol_names)
         fprintf(fout, '%s,%s\n', Split_mol_names{i}, Split_map_names{i});
