@@ -1,9 +1,9 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="/home/Hesam/Desktop/alatis_folders/ALATIS_v4/alatis/alatis_v4.prj" location="/home/Hesam/Desktop/alatis_folders/ALATIS_v4/alatis" name="alatis_v4" target="target.ezdeploy.standalone" target-name="Application Compiler">
-    <param.appname>alatis_v4</param.appname>
+  <configuration file="/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4.prj" location="/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis" name="alatis_v4" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>alatis_v4_2</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>1.0</param.version>
+    <param.version>4.2</param.version>
     <param.authnamewatermark />
     <param.email />
     <param.company />
@@ -11,7 +11,7 @@
     <param.description />
     <param.screenshot />
     <param.guid />
-    <param.installpath.string>/alatis_v4/</param.installpath.string>
+    <param.installpath.string>/alatis_v4_2/</param.installpath.string>
     <param.installpath.combo>option.installpath.user</param.installpath.combo>
     <param.logo />
     <param.install.notes>In the following directions, replace MCR_ROOT by the directory where the MATLAB Runtime is installed on the target machine.
@@ -57,7 +57,6 @@
     <unset>
       <param.icon />
       <param.icons />
-      <param.version />
       <param.authnamewatermark />
       <param.email />
       <param.company />
@@ -97,14 +96,14 @@
     <fileset.package />
     <fileset.depfun />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="alatis_v4" optional="false">/home/Hesam/Desktop/alatis_folders/ALATIS_v4/alatis/alatis_v4/for_testing/alatis_v4</file>
-      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="readme.txt" optional="true">/home/Hesam/Desktop/alatis_folders/ALATIS_v4/alatis/alatis_v4/for_testing/readme.txt</file>
-      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="run_alatis_v4.sh" optional="false">/home/Hesam/Desktop/alatis_folders/ALATIS_v4/alatis/alatis_v4/for_testing/run_alatis_v4.sh</file>
-      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="splash.png" optional="false">/home/Hesam/Desktop/alatis_folders/ALATIS_v4/alatis/alatis_v4/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="run_alatis_v4_2.sh" optional="false">/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/run_alatis_v4_2.sh</file>
+      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="alatis_v4_2" optional="false">/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/alatis_v4_2</file>
+      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="splash.png" optional="false">/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="readme.txt" optional="true">/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/readme.txt</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/home/Hesam/Desktop/MATLAB_2016a</root>
+      <root>/home/hesam/Desktop/MATLAB_2016a</root>
       <toolboxes>
         <toolbox name="fixedpoint" />
         <toolbox name="matlabcoder" />
@@ -141,7 +140,7 @@
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>2.6.32-696.el6.x86_64</osver>
+      <osver>4.15.0-29-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>

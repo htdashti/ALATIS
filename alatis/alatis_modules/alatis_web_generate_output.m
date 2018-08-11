@@ -32,18 +32,33 @@ global updated_mol_name Warning_to_user Error_Msg failed_methylene_check Split_m
 fout = fopen(sprintf('%s/%s', folder_path, compact_sdf_output_name), 'w');
 if exist(updated_mol_name, 'file')
     filetext = fileread(updated_mol_name);
-    fprintf(fout, '%s\n', strrep(filetext, '$$$$', ''));
+    filetext = strrep(filetext, '$$$$', '');
+    content = strsplit(filetext, 'M  END');
+    if isempty(strtrim(content{2}))
+        filetext = sprintf('%sM  END\n', content{1});
+    else
+        filetext = sprintf('%sM  END%s', content{1}, content{2});
+        last_char_index = 0;
+        for i=length(filetext):-1:1
+            if ~isempty(strtrim(filetext(i)))
+                last_char_index = i;
+                break
+            end
+        end
+        filetext = sprintf('%s\n\n', filetext(1:last_char_index));
+    end
+    fprintf(fout, '%s', filetext);
 end
 % write standard inchi
 if exist('inchi_complete.inchi', 'file')
-    fprintf(fout,'>  <ALATIS_Standard_InChI>\n');
+    fprintf(fout,'> <ALATIS_Standard_InChI>\n');
     fin = fopen('inchi_complete.inchi', 'r');
     tline = fgetl(fin);
     fprintf(fout, '%s\n\n', tline);
     fclose(fin);
 end
 % write warnings
-fprintf(fout,'>  <ALATIS_Warnings>\n');
+fprintf(fout,'> <ALATIS_Warnings>\n');
 for i=1:length(Warning_to_user)
     fprintf(fout, '%s\n', Warning_to_user{i});
 end
@@ -53,7 +68,7 @@ end
 fprintf(fout,'\n');
 
 % write errors
-fprintf(fout,'>  <ALATIS_Errors>\n');
+fprintf(fout,'> <ALATIS_Errors>\n');
 for i=1:length(Error_Msg)
     fprintf(fout, '%s\n', Error_Msg{i});
 end
@@ -63,7 +78,7 @@ end
 fprintf(fout,'\n');
 
 % write map:
-fprintf(fout,'>  <ALATIS_Map>\n');
+fprintf(fout,'> <ALATIS_Map>\n');
 if exist(sprintf('%s/map.txt', folder_path), 'file')
     filetext = fileread(sprintf('%s/map.txt', folder_path));
     fprintf(fout, '%s\n', filetext);
@@ -71,7 +86,7 @@ end
 fprintf(fout,'\n');
 
 % write mixture map
-fprintf(fout,'>  <ALATIS_Mixture_Map>\n');
+fprintf(fout,'> <ALATIS_Mixture_Map>\n');
 for i=1:length(Split_map_names)
     if exist(Split_map_names{i}, 'file')
         fprintf(fout, 'molecule_%d\n', i);
