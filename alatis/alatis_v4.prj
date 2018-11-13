@@ -1,9 +1,9 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4.prj" location="/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis" name="alatis_v4" target="target.ezdeploy.standalone" target-name="Application Compiler">
-    <param.appname>alatis_v4_2</param.appname>
+  <configuration file="/home/nmrbox/hdashti/Desktop/From_NMRFAM/Codes_backup_09_21_2018/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4.prj" location="/home/nmrbox/hdashti/Desktop/From_NMRFAM/Codes_backup_09_21_2018/alatis_folders/alatis_git/ALATIS/alatis" name="alatis_v4" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>alatis_v4_3</param.appname>
     <param.icon />
     <param.icons />
-    <param.version>4.2</param.version>
+    <param.version>4.3</param.version>
     <param.authnamewatermark />
     <param.email />
     <param.company />
@@ -11,7 +11,7 @@
     <param.description />
     <param.screenshot />
     <param.guid />
-    <param.installpath.string>/alatis_v4_2/</param.installpath.string>
+    <param.installpath.string>/alatis_v4_3/</param.installpath.string>
     <param.installpath.combo>option.installpath.user</param.installpath.combo>
     <param.logo />
     <param.install.notes>In the following directions, replace MCR_ROOT by the directory where the MATLAB Runtime is installed on the target machine.
@@ -42,7 +42,6 @@
     <param.logdir>${PROJECT_ROOT}/alatis_v4</param.logdir>
     <param.enable.clean.build>false</param.enable.clean.build>
     <param.user.defined.mcr.options />
-    <param.embed.ctf>true</param.embed.ctf>
     <param.target.type>subtarget.standalone</param.target.type>
     <param.support.packages />
     <param.web.mcr>true</param.web.mcr>
@@ -54,6 +53,10 @@
     <param.windows.command.prompt>false</param.windows.command.prompt>
     <param.create.log>false</param.create.log>
     <param.log.file />
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text />
     <unset>
       <param.icon />
       <param.icons />
@@ -74,7 +77,6 @@
       <param.logdir />
       <param.enable.clean.build />
       <param.user.defined.mcr.options />
-      <param.embed.ctf />
       <param.target.type />
       <param.support.packages />
       <param.web.mcr />
@@ -86,6 +88,10 @@
       <param.windows.command.prompt />
       <param.create.log />
       <param.log.file />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+      <param.help.text />
     </unset>
     <fileset.main>
       <file>${PROJECT_ROOT}/alatis_web.m</file>
@@ -96,19 +102,21 @@
     <fileset.package />
     <fileset.depfun />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="run_alatis_v4_2.sh" optional="false">/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/run_alatis_v4_2.sh</file>
-      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="alatis_v4_2" optional="false">/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/alatis_v4_2</file>
-      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="splash.png" optional="false">/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/splash.png</file>
-      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="readme.txt" optional="true">/home/hesam/Desktop/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="splash.png" optional="false">/home/nmrbox/hdashti/Desktop/From_NMRFAM/Codes_backup_09_21_2018/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="readme.txt" optional="true">/home/nmrbox/hdashti/Desktop/From_NMRFAM/Codes_backup_09_21_2018/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="alatis_v4_3" optional="false">/home/nmrbox/hdashti/Desktop/From_NMRFAM/Codes_backup_09_21_2018/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/alatis_v4_3</file>
+      <file location="${PROJECT_ROOT}/alatis_v4/for_testing" name="run_alatis_v4_3.sh" optional="false">/home/nmrbox/hdashti/Desktop/From_NMRFAM/Codes_backup_09_21_2018/alatis_folders/alatis_git/ALATIS/alatis/alatis_v4/for_testing/run_alatis_v4_3.sh</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/home/hesam/Desktop/MATLAB_2016a</root>
+      <root>/home/nmrbox/hdashti/Desktop/MATLAB_2017b</root>
       <toolboxes>
         <toolbox name="fixedpoint" />
         <toolbox name="matlabcoder" />
         <toolbox name="matlabhdlcoder" />
         <toolbox name="embeddedcoder" />
+        <toolbox name="gpucoder" />
+        <toolbox name="polyspacebugfinder" />
       </toolboxes>
       <toolbox>
         <fixedpoint>
@@ -130,6 +138,16 @@
           <enabled>true</enabled>
         </embeddedcoder>
       </toolbox>
+      <toolbox>
+        <gpucoder>
+          <enabled>true</enabled>
+        </gpucoder>
+      </toolbox>
+      <toolbox>
+        <polyspacebugfinder>
+          <enabled>true</enabled>
+        </polyspacebugfinder>
+      </toolbox>
     </matlab>
     <platform>
       <unix>true</unix>
@@ -140,7 +158,7 @@
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>4.15.0-29-generic</osver>
+      <osver>4.4.0-134-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>

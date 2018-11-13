@@ -33,9 +33,9 @@ for iter=1:length(Edges)
     fprintf(fout, '%3d%3d%3d%3d%3d%3d%3d\n', Edges{i}(1), Edges{i}(2), Edges{i}(3), Edges{i}(4), Edges{i}(5), Edges{i}(6), Edges{i}(7));
 end
 
-% updating and writing out the RAD, CHG, SBL, SAL tags at the end
+% updating and writing out the RAD, CHG, ISO, SBL, SAL tags at the end
 for i=1:length(End)
-    if ~isempty(strfind(End{i}, 'CHG')) || ~isempty(strfind(End{i}, 'RAD'))
+    if ~isempty(strfind(End{i}, 'CHG')) || ~isempty(strfind(End{i}, 'RAD')) || ~isempty(strfind(End{i}, 'ISO'))
         STR = End{i};
         content = strsplit(STR);
         list = [];
@@ -48,8 +48,12 @@ for i=1:length(End)
         end
         if ~isempty(strfind(End{i}, 'CHG'))
             fprintf(fout, 'M  CHG%3d', str2double(content{3}));
-        else
+        end
+        if ~isempty(strfind(End{i}, 'RAD'))
             fprintf(fout, 'M  RAD%3d', str2double(content{3}));
+        end
+        if ~isempty(strfind(End{i}, 'ISO'))
+            fprintf(fout, 'M  ISO%3d', str2double(content{3}));
         end
         for j=1:size(list, 1)
             fprintf(fout, '%4d%4d', list(j, 1), list(j, 2));
